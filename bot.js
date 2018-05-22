@@ -42,13 +42,28 @@ bot.on('message', function (user, userID, channelID, message, evt) {
           });
         break;
 
+        // !help
+        case 'help':
+        bot.sendMessage({
+          to: channelID,
+          message: 'Welcome to the card encyclopedia! To find a card, type !card <name> to see info on it! To see cards in a category, type !cards <damage, healing, other>.'
+        });
+        break;
+
         // !cards
         case 'cards':
-          bot.sendMessage({
-            to: channelID,
-            message: 'Welcome to the card encyclopedia! To find a card, type !card <name> to see info on it! To see cards in a category, type !cards <Damage, Healing, Other>.'
-          });
-          break;
+
+          switch(args) {
+
+            //!cards damage
+            case 'damage':
+              bot.sendMessage({
+                to: channelID,
+                message: 'Bash\nSlash\nCleave\nJab\nKick\nMagicMissile'
+              });
+            break;
+
+          }
 
       }
     }
