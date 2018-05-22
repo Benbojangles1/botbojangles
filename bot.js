@@ -29,7 +29,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         // template
         case 'case template':
         bot.sendMessage({
-          to:channelID,
+          to: channelID,
           message: 'hey'
         });
         break;
