@@ -25,6 +25,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
       args = args.splice(1);
       switch(cmd) {
+
+        // template
+        case 'case template':
+        bot.sendMessage({
+          to:channelID,
+          message: 'hey'
+        });
+        break;
+
         // !ping
         case 'ping':
           bot.sendMessage({
@@ -33,11 +42,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
           });
         break;
 
-        case 'register':
+        // !cards
+        case 'cards':
           bot.sendMessage({
             to: channelID,
-            message: 'To register, type: !start name species weapon object place color number'
-          })
+            message: 'Welcome to the card encyclopedia! To find a card, type !card <name> to see info on it! To see cards in a category, type !cards <Damage, Healing, Other>.'
+          });
+          break;
 
       }
     }
