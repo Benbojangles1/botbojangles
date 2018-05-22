@@ -26,12 +26,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
       args = args.splice(1);
       switch(cmd) {
 
-        // template
-        case 'case template':
-        bot.sendMessage({
-          to: channelID,
-          message: 'hey'
-        });
+        // !template
+        case 'template':
+          bot.sendMessage({
+            to: channelID,
+            message: 'template test'
+          });
         break;
 
         // !ping
