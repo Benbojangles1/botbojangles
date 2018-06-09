@@ -17,6 +17,7 @@ bot.on('ready', function (evt) {
   logger.info('Logged in as: ');
   logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Bot listens for commands
     if (message.substring(0,1) == '!') {
@@ -25,45 +26,30 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
       args = args.splice(1);
       switch(cmd) {
-
-        // !template
-        case 'template':
-          bot.sendMessage({
-            to: channelID,
-            message: 'template test'
-          });
-        break;
-
         // !ping
         case 'ping':
           bot.sendMessage({
             to: channelID,
-            message: 'Pong! :ping_pong:'
+            message: 'Pong!'
           });
         break;
 
-        // !help
-        case 'help':
-        bot.sendMessage({
-          to: channelID,
-          message: 'Welcome to the card encyclopedia! To find a card, type !card <name> to see info on it! To see cards in a category, type !cards <damage, healing, other>.'
-        });
-        break;
+        case 'initClearTimer':
 
-        // !cards
-        case 'cards':
+        for (var i = 0; i < 5; i++){
+          var date = new Date();
+          var hour = date.getHours();
 
-          switch(args) {
-
-            //!cards damage
-            case 'damage':
-              bot.sendMessage({
-                to: channelID,
-                message: 'Bash\nSlash\nCleave\nJab\nKick\nMagicMissile'
-              });
-            break;
-
+          if (hour == 14) {
+            bot.sendMessage({
+              to: channelID,
+              message: 'Yo it is two o clocc'
+            });
           }
+
+         }
+
+        break;
 
       }
     }
